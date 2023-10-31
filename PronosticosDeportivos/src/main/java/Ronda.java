@@ -15,8 +15,12 @@ public class Ronda {
 		
 		Partido[] partidos = new Partido[2];
 		
-		 partidos[0] = new Partido("P1", 2, 1);
-	     partidos[1] = new Partido("P2", 0, 0);
+		// Agregar logica para tomar los datos de los equipos y cargarlos en el vector
+		
+		partidos[0] = new Partido("P1", equipo1, equipo2, 2, 1);
+	    partidos[1] = new Partido("P2", equipo3, equipo4, 0, 0);
+	    
+	    Partido parti2 = new Partido("nro", null, null, 0, 0);
 		
 	}
 

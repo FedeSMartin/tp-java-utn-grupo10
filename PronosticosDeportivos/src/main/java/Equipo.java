@@ -2,21 +2,21 @@
 public class Equipo {
 	
 	private String nombre;
-	private String descripcion;
+//	private String descripcion;
 	
 	public Equipo(String nombre, String descripcion) {
 		this.nombre = nombre;
-		this.descripcion = descripcion;
+//		this.descripcion = descripcion;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-	
+//	public String getDescripcion() {
+//		return descripcion;
+//	}
+//	
 	
 }
 // prueba de comentario

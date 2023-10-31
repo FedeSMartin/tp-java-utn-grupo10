@@ -2,26 +2,37 @@
 public class Partido {
 	
 	private String id;
-	private int golesEquipo1;
-	private int golesEquipo2;
+    private Equipo equipo1;
+    private Equipo equipo2;
+    private int golesEquipo1;
+    private int golesEquipo2;
+
+    public Partido(String id, Equipo nombreE1, Equipo nombreE2, int golesEquipo1, int golesEquipo2) {
+    	
+        this.id = id;
+        this.equipo1 = nombreE1;
+        this.equipo2 = nombreE2;
+        this.golesEquipo1 = golesEquipo1;
+        this.golesEquipo2 = golesEquipo2;
+        
+    }
 	
-	Equipo equipo1 = new Equipo("Cualquiera", "no se que poner");
-	
-	Equipo equipo2 = new Equipo("Esteesotro", "no se que poner2");
-	
-	public Partido(String id, int golesEquipo1, int golesEquipo2) {
+	public void resultado() {
 		
-		this.id = id;
-		this.golesEquipo1 = golesEquipo1;
-		this.golesEquipo2 = golesEquipo2;
+		// Aca lee el archivo de resultados, extrae lo que necesita, ID, los equipos y los goles
+		// Tambien lee el archivo de pronosticos, extrae los datos necesarios para comparar los datos
 		
+		// Si equipo1 tiene mas goles que equipo2, equipo1 "GANA", equipo2 "PIERDE". 
+		// Si equipo 1 tiene mismos o ningun gol mas que equipo2, equipo1 y equipo2, "EMPATA"
+		
+		// La logica tiene que comparar los resultados y verificarlos en el Enum "ResultadosEnum"
+		
+		
+		//this.equipo1 = equipo; // esto es una prueba
+		// Retorna un Enum
 	}
 	
-	public void resultado(Equipo equipo) {
-		
-		this.equipo1 = equipo; // esto es una prueba
-		
-	}
+	// getters
 
 	public String getId() {
 		return id;

@@ -1,8 +1,8 @@
 
 public class Pronostico {
 	
-	Partido partido = new Partido("001", 2, 1);
-	Equipo equipo2 = new Equipo ("Cualquiera", "No se que va aca");
+	private Partido partido;
+	private Equipo equipo;
 	
 	public int puntos() {
 		
