@@ -1,10 +1,10 @@
 
-public class Persona {
+public class Participante {
 	
 	private String nombre;
 	private int puntos;
 	
-	public Persona(String nombre, int puntos) {
+	public Participante(String nombre, int puntos) {
 	
 		this.nombre = nombre;
 		this.puntos = puntos;

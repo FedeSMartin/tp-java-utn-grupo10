@@ -1,15 +1,15 @@
 public class Partido {
 	
-	private String id;
+	private String ronda;
     private Equipo equipo1;
     private Equipo equipo2;
     private int golesEquipo1;
     private int golesEquipo2;
    
 
-    public Partido(String id, String nombreE1, String nombreE2, int golesEquipo1, int golesEquipo2) {
+    public Partido(String ronda, String nombreE1, String nombreE2, int golesEquipo1, int golesEquipo2) {
     	
-    	this.id = id;
+    	this.ronda = ronda;
         this.equipo1 = new Equipo(nombreE1);
         this.equipo2 = new Equipo(nombreE2);
         this.golesEquipo1 = golesEquipo1;
@@ -41,8 +41,8 @@ public class Partido {
 	
 	// getters
 
-	public String getId() {
-		return id;
+	public String getRonda() {
+		return ronda;
 	}
 
 	public int getGolesEquipo1() {

@@ -20,11 +20,13 @@ public class PruebaLectorArchivos {
 		        
 		        if(lineasArchivoResultados != null && !lineasArchivoResultados.isEmpty()) {
 		        	
-		            for(ArchivoResultados resultado : lineasArchivoResultados) {
-		            	
-		                System.out.println(resultado); // Imprimir cada elemento en la lista
-		                
-		            }
+		        	System.out.println(lineasArchivoResultados);
+		        	
+//		            for(ArchivoResultados resultado : lineasArchivoResultados) {
+//		            	
+//		                System.out.println(resultado); // Imprimir cada elemento en la lista
+//		                
+//		            }
 		            
 		        } else {
 		        	
@@ -55,6 +57,10 @@ public class PruebaLectorArchivos {
 		            
 		        }
 	        
+		} else {
+			
+			System.out.println("Ingrese numero valido (1 - para Resultados \\ 2 - para Pronosticos");
+			
 		}
 		
 /////////////// BARRA PARA EVITAR PROBLEMA CON LOS UTIMOS 2 CORCHETES ///////////////

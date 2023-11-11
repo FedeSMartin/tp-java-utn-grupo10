@@ -59,17 +59,17 @@ public class ArchivoPronosticos {
 	
 	////	////    ¡CUIDADO, SIRVE PARA SABER SI LEE ARCHIVO!    ////    ////
 	
-	 @Override
-	    public String toString() {
-	        return "ArchivoPronosticos{ " +
-	        		"participante='" + participante + '\'' +
-					"equipo1='" + equipo1 + '\'' +
-					", gana1='" + gana1 + '\'' +
-					", emapata='" + emapata + '\'' +
-					", gana2='" + gana2 + '\'' +
-					", equipo2='" + equipo2 + '\'' +
-					'}';
-	    }
+//	 @Override
+//	    public String toString() {
+//	        return "ArchivoPronosticos{ " +
+//	        		"participante='" + participante + '\'' +
+//					"equipo1='" + equipo1 + '\'' +
+//					", gana1='" + gana1 + '\'' +
+//					", emapata='" + emapata + '\'' +
+//					", gana2='" + gana2 + '\'' +
+//					", equipo2='" + equipo2 + '\'' +
+//					'}';
+//	    }
 	 
 	 ////	////    ¡CUIDADO, SIRVE PARA SABER SI LEE ARCHIVO!    ////    ////
 	
