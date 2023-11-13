@@ -1,7 +1,13 @@
 
 public enum ResultadoEnum {
-	GANADOR,PERDEDOR,EMPATE
+	GANO_EQUIPO1,GANO_EQUIPO2,EMPATE
 }
+
+
+
+
+
+
 
 // No se para que está el item "PERDEDOR", si lo que se 
 // selecciona es si un equipo es "GANADOR", (por definicion misma 

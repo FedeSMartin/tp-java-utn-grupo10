@@ -41,10 +41,8 @@ public class LectorDePronosticos {
 	        e.printStackTrace();
 	    }
 	        this.lineasArchivoPronosticos = listaDePronosticos;
-	        
 	    }
 	    
 	    ///////////////////////////////////////////////////////////////////////////
-
 }
 

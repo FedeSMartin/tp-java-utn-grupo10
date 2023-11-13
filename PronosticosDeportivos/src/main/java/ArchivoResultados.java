@@ -50,16 +50,16 @@ public class ArchivoResultados {
 	
 	////    ////    ¡CUIDADO, SIRVE PARA SABER SI LEE ARCHIVO!    ////    ////
 	
-//	@Override
-//	public String toString() {
-//	    return "ArchivoResultados{" +
-//	    	"ronda='" + ronda + '\'' +
-//	    	"equipo1='" + equipo1 + '\'' +
-//			", cantidadGoles1=" + cantidadGoles1 +
-//			", cantidadGoles2=" + cantidadGoles2 +
-//			", equipo2='" + equipo2 + '\'' +
-//			'}';
-//	}
+	@Override
+	public String toString() {
+	    return "ArchivoResultados{" +
+	    	"ronda='" + ronda + '\'' +
+	    	"equipo1='" + equipo1 + '\'' +
+			", cantidadGoles1=" + cantidadGoles1 +
+			", cantidadGoles2=" + cantidadGoles2 +
+			", equipo2='" + equipo2 + '\'' +
+			'}';
+	}
 	
 	/// EN LA PARTE DE ABAJO DE MUESTRAN LOS GOLES COMO STRINGS ///
 	

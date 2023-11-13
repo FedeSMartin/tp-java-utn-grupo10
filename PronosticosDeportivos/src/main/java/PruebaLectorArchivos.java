@@ -20,19 +20,21 @@ public class PruebaLectorArchivos {
 		        
 		        if(lineasArchivoResultados != null && !lineasArchivoResultados.isEmpty()) {
 		        	
-		        	System.out.println(lineasArchivoResultados);
+//		        	System.out.println(lineasArchivoResultados);
 		        	
-//		            for(ArchivoResultados resultado : lineasArchivoResultados) {
-//		            	
-//		                System.out.println(resultado); // Imprimir cada elemento en la lista
-//		                
-//		            }
+		            for(ArchivoResultados resultado : lineasArchivoResultados) {
+		            	
+		                System.out.println(resultado); // Imprimir cada elemento en la lista
+		                
+		            }
 		            
 		        } else {
 		        	
 		            System.out.println("No se han parseado datos o la lista está vacía.");
 		            
 		        }
+		        
+////	////	////	////	<< ARCHIVOS PRONOSTICOS >>	////	////	////	////
 	        
 		} else if(verArchivo == 2) {
 	        

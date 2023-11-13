@@ -44,4 +44,24 @@ public class LectorDeResultados {
 	        
 	    }
 	    
+	    // Getters & Setters
+
+		public String getRutaArchivoResultados() {
+			return rutaArchivoResultados;
+		}
+
+		public void setRutaArchivoResultados(String rutaArchivoResultados) {
+			this.rutaArchivoResultados = rutaArchivoResultados;
+		}
+
+		public List<ArchivoResultados> getLineasArchivoResultados() {
+			return lineasArchivoResultados;
+		}
+
+		public void setLineasArchivoResultados(List<ArchivoResultados> lineasArchivoResultados) {
+			this.lineasArchivoResultados = lineasArchivoResultados;
+		}
+	    
+	    
+	    
 }
