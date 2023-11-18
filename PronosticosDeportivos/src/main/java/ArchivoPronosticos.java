@@ -1,21 +1,29 @@
 import com.opencsv.bean.CsvBindByPosition;
 
 public class ArchivoPronosticos {
-		
+	
 	@CsvBindByPosition(position = 0)
-    private String participante;
-    @CsvBindByPosition(position = 1)
-    private String equipo1;
+    private String ronda;
+	@CsvBindByPosition(position = 1)
+    private static String participante;
     @CsvBindByPosition(position = 2)
-    private String gana1;
+    private String equipo1;
     @CsvBindByPosition(position = 3)
-    private String emapata;
+    private String gana1;
     @CsvBindByPosition(position = 4)
-    private String gana2;
+    private String emapata;
     @CsvBindByPosition(position = 5)
+    private String gana2;
+    @CsvBindByPosition(position = 6)
     private String equipo2;
     
-    public String getParticipante() {
+    public String getRonda() {
+		return ronda;
+	}
+	public void setRonda(String ronda) {
+		this.ronda = ronda;
+	}
+	public static String getParticipante() {
 		return participante;
 	}
 	public void setParticipante(String participante) {
@@ -59,17 +67,17 @@ public class ArchivoPronosticos {
 	
 	////	////    ¡CUIDADO, SIRVE PARA SABER SI LEE ARCHIVO!    ////    ////
 	
-//	 @Override
-//	    public String toString() {
-//	        return "ArchivoPronosticos{ " +
-//	        		"participante='" + participante + '\'' +
-//					"equipo1='" + equipo1 + '\'' +
-//					", gana1='" + gana1 + '\'' +
-//					", emapata='" + emapata + '\'' +
-//					", gana2='" + gana2 + '\'' +
-//					", equipo2='" + equipo2 + '\'' +
-//					'}';
-//	    }
+	 @Override
+	    public String toString() {
+	        return "ArchivoPronosticos{ " +
+	        		"participante='" + participante + '\'' +
+					"equipo1='" + equipo1 + '\'' +
+					", gana1='" + gana1 + '\'' +
+					", emapata='" + emapata + '\'' +
+					", gana2='" + gana2 + '\'' +
+					", equipo2='" + equipo2 + '\'' +
+					'}';
+	    }
 	 
 	 ////	////    ¡CUIDADO, SIRVE PARA SABER SI LEE ARCHIVO!    ////    ////
 	

@@ -1,6 +1,6 @@
 
 public enum ResultadoEnum {
-	GANO_EQUIPO1,GANO_EQUIPO2,EMPATE
+	GANA_EQUIPO1,GANA_EQUIPO2,EMPATE
 }
 
 
