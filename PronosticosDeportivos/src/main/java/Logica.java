@@ -57,7 +57,7 @@ public class Logica {
 				
 				// Instanciar un partido con datos de pronostico
 				
-				Pronostico pronosticoPartido = new Pronostico(partido, datosDePronostico.getEquipo1(), datosDePronostico.getParticipante());
+				Pronostico pronosticoPartido = new Pronostico(datosDePronostico.getRonda(), datosDePronostico.getParticipante(), datosDePronostico.getPuntos(); partido, datosDePronostico.getEquipo1());
 				
 //				Partido pronosticoPartido = new Partido();
 				

@@ -10,15 +10,15 @@ public class Pronostico {
 	
 	private ResultadoEnum estado;
 	
-	public Pronostico(String ronda, Participante participante, Partido partido, Equipo equipo, ResultadoEnum estado) {
+	public Pronostico(String rondaPronostico, String nombreParticipante, int puntos, String rondaPartido, String nombreE1, String nombreE2, int golesEquipo1, int golesEquipo2, String NombreEqGanador, ResultadoEnum estado) {
 		
-		this.ronda = ronda;
+		this.ronda = rondaPronostico;
 		
 		//----------------
 		
-		this.participante = participante;
-		this.partido = partido;
-		this.equipo = equipo;
+		this.participante = new Participante(nombreParticipante, puntos);
+		this.partido = new Partido(rondaPartido, nombreE1, nombreE2, golesEquipo1, golesEquipo2);
+		this.equipo = new Equipo(NombreEqGanador);
 		
 		//----------------
 		
@@ -117,10 +117,10 @@ public class Pronostico {
 		
 	    // Aca podes colocar la lógica para calcular los puntos y devolver un valor entero.
 		
-	    int puntosCalculados = 0;
 	    
-	    
-	    
+		
+		int puntosCalculados = 0;
+	       
 		return puntosCalculados; // puntosCalculados es un ejemplo, tenes que reemplazarlo con la lógica real.
 	}
 }

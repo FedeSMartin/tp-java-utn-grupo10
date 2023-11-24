@@ -7,41 +7,43 @@ public class LectorDeResultados {
 	 String rutaArchivoResultados;
 	 List<ArchivoResultados> lineasArchivoResultados;
 	    
-	    public LectorDeResultados(String rutaArchivo) {    	
+	 public LectorDeResultados(String rutaArchivo) {    	
 	    	
 	        this.rutaArchivoResultados = rutaArchivo;
-	        this.lineasArchivoResultados = new ArrayList<>();
-	        
-	    }
+	        this.lineasArchivoResultados = new ArrayList<>();   
+	  }
+	 
+	 //-------------------------------------------
 
 	    @SuppressWarnings("unchecked")
 	    
-		public void parsearArchivo() {
+	 //-------------------------------------------
+	    
+	 public void parsearArchivo() {
 	    	
-	        List<ArchivoResultados> listaDeResultados = null;
+	   List<ArchivoResultados> listaDeResultados = null;
 	        
-	        try {
+	   try {
 	        	
-	            // En esta primera línea definimos el archivos que va a ingresar
-	        	listaDeResultados = new CsvToBeanBuilder(new FileReader(this.rutaArchivoResultados))
+	      // En esta primera línea definimos el archivos que va a ingresar
+	      listaDeResultados = new CsvToBeanBuilder(new FileReader(this.rutaArchivoResultados))
 	        			
-	                    // con esta configuración podemos skipear la primera línea de nuestro archivo CSV
-	                    .withSkipLines(1)
+	      // con esta configuración podemos skipear la primera línea de nuestro archivo CSV
+	      .withSkipLines(1)
 	                    
-	                    // con esta configuración podemos elegir cual es el caracter que vamos a usar para delimitar
-	                    .withSeparator(';')
+	      // con esta configuración podemos elegir cual es el caracter que vamos a usar para delimitar
+	      .withSeparator(';')
 	                    
-	                    // Es necesario definir el tipo de dato que va a generar el objeto que estamos queriendo parsear a partir del CSV
-	                    .withType(ArchivoResultados.class)
-	                    .build()
-	                    .parse();
+	      // Es necesario definir el tipo de dato que va a generar el objeto que estamos queriendo parsear a partir del CSV
+	      .withType(ArchivoResultados.class)
+	      .build()
+	      .parse();
 
-	        } catch (IOException e) {
+	    } catch (IOException e) {
 	        	
 	        e.printStackTrace();
 	    }
 	        this.lineasArchivoResultados = listaDeResultados;
-	        
 	    }
 	    
 	    // Getters & Setters
