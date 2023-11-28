@@ -1,13 +1,21 @@
 public class Partido {
 	
-	private String ronda;
-    private Equipo equipo1;
-    private Equipo equipo2;
-    private int golesEquipo1;
-    private int golesEquipo2;
+    private Equipo equipo1, equipo2;
+    private int idPartido, ronda, golesEquipo1, golesEquipo2;
    
-    public Partido(String ronda, String nombreE1, String nombreE2, int golesEquipo1, int golesEquipo2) {
+    public Partido(int ronda, String nombreE1, int golesEquipo1, int golesEquipo2, String nombreE2) {
     	
+    	this.ronda = ronda;
+        this.equipo1 = new Equipo(nombreE1);
+        this.equipo2 = new Equipo(nombreE2);
+        this.golesEquipo1 = golesEquipo1;
+        this.golesEquipo2 = golesEquipo2;
+        
+    }
+    
+    public Partido(int idPartido, int ronda, String nombreE1, int golesEquipo1, int golesEquipo2, String nombreE2) {
+    	
+    	this.idPartido = idPartido;
     	this.ronda = ronda;
         this.equipo1 = new Equipo(nombreE1);
         this.equipo2 = new Equipo(nombreE2);
@@ -25,23 +33,30 @@ public class Partido {
     	
     }
     
-    public Partido(String ronda, String nombreE1, String nombreE2) {
+    public Partido(int idPartido, String nombreE1, String nombreE2) {
     	
-    	this.ronda = ronda;
+    	this.idPartido = idPartido;
         this.equipo1 = new Equipo(nombreE1);
         this.equipo2 = new Equipo(nombreE2);
         
     }
     
-	public String getRonda() {
+    public int getIdPartido() {
+		return idPartido;
+	}
+    
+	public int getRonda() {
 		return ronda;
 	}
 	
 	public Equipo getEquipo1() {
+		//crear objeto y ponerle el .getNombre()..
+		
 		return equipo1;
 	}
 
 	public Equipo getEquipo2() {
+		//crear objeto y ponerle el .getNombre()..
 		return equipo2;
 	}
 
@@ -52,7 +67,15 @@ public class Partido {
 	public int getGolesEquipo2() {
 		return golesEquipo2;
 	}
+	
+	
 		
+	@Override
+	public String toString() {
+		return "Partido [equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", idPartido=" + idPartido + ", ronda=" + ronda
+				+ ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2 + "]";
+	}
+
 	public ResultadoEnum resultado() {
 		
         if (this.golesEquipo1 > this.golesEquipo2) {
@@ -68,8 +91,9 @@ public class Partido {
             return ResultadoEnum.EMPATE;
             
         }
+        
+        
     }
-	
 
 
 //	public resultadoEnum resultado(Equipo equipo) {

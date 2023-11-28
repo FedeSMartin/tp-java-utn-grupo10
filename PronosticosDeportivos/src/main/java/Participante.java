@@ -9,6 +9,12 @@ public class Participante {
 		this.nombre = nombre;
 		this.puntos = puntos;
 	}
+	
+	public Participante(String nombre) {
+		
+		this.nombre = nombre;
+
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -17,5 +23,12 @@ public class Participante {
 	public int getPuntos() {
 		return puntos;
 	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
+	
 	
 }

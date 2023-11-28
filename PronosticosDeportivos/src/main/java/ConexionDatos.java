@@ -1,21 +1,29 @@
 
 public class ConexionDatos {
 	
-	private int origenDeDatos = 1; 	// 1 para lector CSV
-									// 2 para conectar a BD
-
-	public ConexionDatos(int origenDeDatos) {
+	private boolean origenDeDatos; 	// true para lector CSV
+									// false para conectar a BD
+	
+	// Constructor de la conexion
+	public ConexionDatos(boolean origenDeDatos) {
+		
 		this.origenDeDatos = origenDeDatos;
 		
-		if ( origenDeDatos == 1 ) {
+//////////////////////////////////////////////////	
+		
+		if ( origenDeDatos == true ) {
 			
+			System.out.println("Hola, soy una conexion a CSV");
 			// clases para leer archivos CSV
 			// LectorDePronosticos
 			// LectorDeResultados
 			
-		} else if ( origenDeDatos == 2 ) {
+		} else if ( origenDeDatos == false ) {
+			
+			System.out.println("Hola, soy una conexion a base de datos");
 			
 			// LectorBaseDeDatos
+//			infoBDPronosticos rBD = new LectorBaseDeDatos();
 			
 		} else {
 			
@@ -23,15 +31,10 @@ public class ConexionDatos {
 			
 		}
 		
-		
 	}
 
-	public int getOrigenDeDatos() {
+	public boolean getOrigenDeDatos() {
 		return origenDeDatos;
-	}
-
-	public void setOrigenDeDatos(int origenDeDatos) {
-		this.origenDeDatos = origenDeDatos;
 	}
 	
 }
