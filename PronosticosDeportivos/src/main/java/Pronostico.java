@@ -4,7 +4,7 @@ public class Pronostico {
 	private Participante participante;
 	private Partido partido;
 	private Equipo equipo;
-	private String ganaEquipo1, empate, ganaEquipo2;
+	private String ganaEquipo1, empate, ganaEquipo2, equipo1, equipo2;
 	private int idPronostico, ronda, idPartidoFK;
 	
 	private ArchivoPronosticos pronostico;
@@ -39,7 +39,9 @@ public class Pronostico {
 		//----------------
 		
 		this.participante = new Participante(nombreParticipante);
-		this.partido = new Partido(idPartidoFK, nombreE1, nombreE2);
+		this.equipo1 = nombreE1; 
+		this.idPartidoFK = idPartidoFK;
+		this.equipo2 = nombreE2;
 		
 		//----------------
 		
@@ -48,6 +50,7 @@ public class Pronostico {
 		this.ganaEquipo2 = ganaEquipo2;
 		
 	}
+	
 	
 	// RONDA
 	public int getRonda() {
@@ -121,9 +124,8 @@ public class Pronostico {
 
 	@Override
 	public String toString() {
-		return "Pronostico [participante=" + participante + ", partido=" + partido + ", ganaEquipo1=" + ganaEquipo1
-				+ ", empate=" + empate + ", ganaEquipo2=" + ganaEquipo2 + ", idPronostico=" + idPronostico + ", ronda="
-				+ ronda + ", idPartidoFK=" + idPartidoFK + "]";
+		return idPronostico + "," + ronda + ","+ participante + "," +equipo1 + "," +ganaEquipo1
+				+ "," +empate +  "," +ganaEquipo2 + "," +equipo2 + "," +idPartidoFK;
 	}
 
 

@@ -72,8 +72,8 @@ public class Partido {
 		
 	@Override
 	public String toString() {
-		return "Partido [equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", idPartido=" + idPartido + ", ronda=" + ronda
-				+ ", golesEquipo1=" + golesEquipo1 + ", golesEquipo2=" + golesEquipo2 + "]";
+		return idPartido + "," + ronda + "," + equipo1 + 
+				"," + golesEquipo1 + "," + golesEquipo2 + "," + equipo2 ;
 	}
 
 	public ResultadoEnum resultado() {

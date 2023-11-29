@@ -4,7 +4,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Logica logic = new Logica();
+		Logica log = new Logica();
+		
+		//Logica logic = new Logica();
 		
 		//InfoBDPartido log = new InfoBDPartido();
 		//InfoBDPronostico logo = new InfoBDPronostico();

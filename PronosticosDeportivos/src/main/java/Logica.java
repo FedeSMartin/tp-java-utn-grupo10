@@ -1,17 +1,86 @@
 import java.util.*;
 
 public class Logica {
+	
+	private List<Pronostico> pronosticos;
+    private List<Partido> partidos;
 
 	public Logica() {
+		
+		// Inicialización y carga de datos desde las clases DatosBDA y DatosBDB
+        InfoBDPronostico datosBDPronostico = new InfoBDPronostico();
+        InfoBDPartido datosBDPartido = new InfoBDPartido();
 
-		ConexionDatos conec = new ConexionDatos(false);
+        this.pronosticos = datosBDPronostico.obtenerDatosPronosticos();
+        this.partidos = datosBDPartido.obtenerDatosPartidos();
+        
+        
+
+        iniciarLogica();
 
 	}
-}
+	
+	public void iniciarLogica() {
+        // Lógica para procesar los datos
+        // Puedes realizar operaciones, comparaciones, etc.
+        // En este ejemplo, simplemente imprimimos los datos
+		
+		Pronostico pronostik = pronosticos.get(2);
+		
+		String[] datosPronostico = pronostik.toString().split(",");
+		
+//		for (String lineaPronostico : datosPronostico) {
+//		    System.out.print(lineaPronostico);
+//		}
+		
+//		System.out.println(" ");
+//		System.out.println(datosPronostico[0]);
+//		System.out.println(datosPronostico[1]);
+//		System.out.println(datosPronostico[2]);
+//		System.out.println(datosPronostico[3]);
+//		System.out.println(datosPronostico[4]);
+//		System.out.println(datosPronostico[5]);
+//		System.out.println(datosPronostico[6]);
+//		System.out.println(datosPronostico[7]);
+//		System.out.println(datosPronostico[8]);
+		
+		////////////////////////////////////////////////////
+		
+		Partido partido = partidos.get(0);
+		
+		String[] datosPartido = partido.toString().split(",");
+		
+		//int datoPartidoGolesEquipo1Int = Integer.parseInt(datosPartido);
+		
+		
+	   }
+	}
+		
+		
+		
+//		Pronostico pron = pronosticos.get(0);
+//		Partido par = partidos.get(0);
+//		
+//		System.out.println(pron);
+//		System.out.println(par);
+		
+		
+//        System.out.println("Datos de la Clase Logica:");
+//        System.out.println("Datos de la Clase Pronosticos:");
+//        for (Pronostico dato : pronosticos) {
+//            System.out.println(dato);
+//        }
+//
+//        System.out.println("\nDatos de la Clase Partidos:");
+//        
+//        for (Partido dato : partidos) {
+//            System.out.println(dato);
+//        }
+ 
 
 
 
-
+//
 
 
 
