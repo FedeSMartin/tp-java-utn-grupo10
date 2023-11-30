@@ -29,7 +29,7 @@ public class Logica {
 
 		for (int i = 0; i < logitudPronostico; i++) {
 			
-			////////////PRONOSTICOS ///////////////
+///////////////////////PRONOSTICOS ///////////////
 
 			Pronostico pronostik = pronosticos.get(i);
 
@@ -51,7 +51,7 @@ public class Logica {
 
 			}
 
-			////////////////////////   PARTRIDOS   ////////////////////////////
+////////////////////////   PARTRIDOS   ////////////////////////////
 
 			Partido partido = partidos.get(i % logitudPartidos);
 
@@ -84,21 +84,35 @@ public class Logica {
 
 			}
 			
+/////////////////////////////////////////////////////////////////////////////////
+			
 			// comparacion de pronosticos contra resultados del partido
+			
+			Participante participante = new Participante(datosPronostico[2]);
 			
 			if (resultadoPronostico == resultadoPartido) {
 
-				System.out.println("se suma un punto al participante");
+				System.out.println("se suma un puntos a: " + datosPronostico[2]);
+				
+				participante.sumarPuntos(1); // Suma 1 punto (hay que hacerlo seteable)
 
 			} else {
 
-				System.out.println("no se suma nada");
+				System.out.println("no se suma nada a: " + datosPronostico[2]);
 			}
+			
 
-		}
+			
+		}// fin del bucle for
+		
+		
+		
 
-	}
-}
+	}// llave de "iniciarLogica()"
+	
+	
+	
+}// llave de la clase
 
 //		Pronostico pron = pronosticos.get(0);
 //		Partido par = partidos.get(0);

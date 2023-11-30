@@ -28,7 +28,11 @@ public class Participante {
 	public String toString() {
 		return nombre;
 	}
-	
-	
+
+	public void sumarPuntos(int puntosASumar) {
+		
+	        this.puntos += puntosASumar;
+	        
+	}
 	
 }
