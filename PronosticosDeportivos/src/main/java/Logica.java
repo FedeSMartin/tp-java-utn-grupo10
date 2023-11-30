@@ -1,70 +1,111 @@
 import java.util.*;
 
 public class Logica {
-	
+
 	private List<Pronostico> pronosticos;
-    private List<Partido> partidos;
+	private List<Partido> partidos;
 
 	public Logica() {
-		
+
 		// Inicialización y carga de datos desde las clases DatosBDA y DatosBDB
-        InfoBDPronostico datosBDPronostico = new InfoBDPronostico();
-        InfoBDPartido datosBDPartido = new InfoBDPartido();
+		InfoBDPronostico datosBDPronostico = new InfoBDPronostico();
+		InfoBDPartido datosBDPartido = new InfoBDPartido();
 
-        this.pronosticos = datosBDPronostico.obtenerDatosPronosticos();
-        this.partidos = datosBDPartido.obtenerDatosPartidos();
-        
-        
+		this.pronosticos = datosBDPronostico.obtenerDatosPronosticos();
+		this.partidos = datosBDPartido.obtenerDatosPartidos();
 
-        iniciarLogica();
+		iniciarLogica();
 
 	}
-	
+
 	public void iniciarLogica() {
-        // Lógica para procesar los datos
-        // Puedes realizar operaciones, comparaciones, etc.
-        // En este ejemplo, simplemente imprimimos los datos
-		
-		Pronostico pronostik = pronosticos.get(2);
-		
-		String[] datosPronostico = pronostik.toString().split(",");
-		
-//		for (String lineaPronostico : datosPronostico) {
-//		    System.out.print(lineaPronostico);
-//		}
-		
-//		System.out.println(" ");
-//		System.out.println(datosPronostico[0]);
-//		System.out.println(datosPronostico[1]);
-//		System.out.println(datosPronostico[2]);
-//		System.out.println(datosPronostico[3]);
-//		System.out.println(datosPronostico[4]);
-//		System.out.println(datosPronostico[5]);
-//		System.out.println(datosPronostico[6]);
-//		System.out.println(datosPronostico[7]);
-//		System.out.println(datosPronostico[8]);
-		
-		////////////////////////////////////////////////////
-		
-		Partido partido = partidos.get(0);
-		
-		String[] datosPartido = partido.toString().split(",");
-		
-		//int datoPartidoGolesEquipo1Int = Integer.parseInt(datosPartido);
-		
-		
-	   }
+
+		int logitudPronostico = pronosticos.size();
+		int logitudPartidos = partidos.size();
+
+		ResultadoEnum resultadoPronostico = null;
+
+		ResultadoEnum resultadoPartido = null;
+
+		for (int i = 0; i < logitudPronostico; i++) {
+			
+			////////////PRONOSTICOS ///////////////
+
+			Pronostico pronostik = pronosticos.get(i);
+
+			String[] datosPronostico = pronostik.toString().split(",");
+
+			if (datosPronostico[4].equalsIgnoreCase("X")) {
+
+				resultadoPronostico = ResultadoEnum.GANA_EQUIPO1;
+				//System.out.println("pronostico " + resultadoPronostico);
+
+			} else if (datosPronostico[5].equalsIgnoreCase("X")) {
+
+				resultadoPronostico = ResultadoEnum.EMPATE;
+				//System.out.println("pronostico " + resultadoPronostico);
+			} else if (datosPronostico[6].equalsIgnoreCase("X")) {
+
+				resultadoPronostico = ResultadoEnum.GANA_EQUIPO2;
+				//System.out.println("pronostico " + resultadoPronostico);
+
+			}
+
+			////////////////////////   PARTRIDOS   ////////////////////////////
+
+			Partido partido = partidos.get(i % logitudPartidos);
+
+			String[] datosPartido = partido.toString().split(", |");
+
+			// se convierte las columnas de los golas a numeros 
+			
+			String datosGolesEq1 = partido.toString().split(",")[3];
+			String datosGolesEq2 = partido.toString().split(",")[4];
+
+			int golesEq1 = Integer.parseInt(datosGolesEq1);
+			int golesEq2 = Integer.parseInt(datosGolesEq2);
+
+			// resultado de los partidos
+
+			if (golesEq1 > golesEq2) {
+
+				resultadoPartido = ResultadoEnum.GANA_EQUIPO1;
+				// System.out.println("Partido " + resultadoPartido);
+
+			} else if (golesEq1 < golesEq2) {
+
+				resultadoPartido = ResultadoEnum.GANA_EQUIPO2;
+				// System.out.println("Partido " + resultadoPartido);
+
+			} else if (golesEq1 == golesEq2) {
+
+				resultadoPartido = ResultadoEnum.EMPATE;
+				// System.out.println("Partido " + resultadoPartido);
+
+			}
+			
+			// comparacion de pronosticos contra resultados del partido
+			
+			if (resultadoPronostico == resultadoPartido) {
+
+				System.out.println("se suma un punto al participante");
+
+			} else {
+
+				System.out.println("no se suma nada");
+			}
+
+		}
+
 	}
-		
-		
-		
+}
+
 //		Pronostico pron = pronosticos.get(0);
 //		Partido par = partidos.get(0);
 //		
 //		System.out.println(pron);
 //		System.out.println(par);
-		
-		
+
 //        System.out.println("Datos de la Clase Logica:");
 //        System.out.println("Datos de la Clase Pronosticos:");
 //        for (Pronostico dato : pronosticos) {
@@ -76,24 +117,8 @@ public class Logica {
 //        for (Partido dato : partidos) {
 //            System.out.println(dato);
 //        }
- 
-
-
 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ///////////////// INSTANCIANDO PARTIDO(S) ///////////////////////////////////////
 //		
