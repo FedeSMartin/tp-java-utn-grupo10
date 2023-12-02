@@ -1,3 +1,7 @@
+package controller;
+
+import model.ArchivoPronosticos;
+import model.ResultadoEnum;
 
 public class Pronostico {
 	

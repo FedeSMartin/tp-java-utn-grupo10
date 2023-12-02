@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>main.Inicio</mainClass>
+                            <mainClass>main.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -33,12 +33,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
-                <configuration>
+<!--                 <configuration>
                     <testSourceDirectory>/PronosticosDeportivos/src/test/java</testSourceDirectory>
                     <includes>
                         <include>Prueba.java</include>
                     </includes>
-                </configuration>
+                </configuration> -->
             </plugin>
         </plugins>	
     </build>

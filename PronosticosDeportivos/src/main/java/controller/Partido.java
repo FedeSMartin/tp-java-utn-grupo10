@@ -1,3 +1,7 @@
+package controller;
+
+import model.ResultadoEnum;
+
 public class Partido {
 	
     private Equipo equipo1, equipo2;

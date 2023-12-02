@@ -1,5 +1,8 @@
+package model;
 import java.sql.*;
 import java.util.*;
+
+import controller.Pronostico;
 
 public class InfoBDPronostico {
 	

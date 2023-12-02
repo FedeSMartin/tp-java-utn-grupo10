@@ -1,4 +1,11 @@
+package controller;
+
 import java.util.*;
+
+import model.*;
+import view.*;
+
+@SuppressWarnings("unused")
 
 public class Logica {
 
@@ -7,6 +14,10 @@ public class Logica {
 	private List<Participante> participantes;
 	private int puntos = 2;
 	
+	public List<Participante> getParticipantes() {
+		return participantes;
+	}
+
 	public Logica() {
 
 		// inicializacion y carga de datos desde 
@@ -31,14 +42,14 @@ public class Logica {
 			procesarPronostico(i);
 		}
 
-		// Ordenamos la lista de participantes de mayor a menor según la cantidad de
+		// ordenamos la lista de participantes de mayor a menor según la cantidad de
 		// puntos
 		participantes.sort(Collections.reverseOrder());
 		
-		//comparador personalizado		
+		//comparador personalizado
 		participantes.sort(Comparator.comparingInt(Participante::getPuntos).reversed());
 
-		// Mostramos los resultados por consola
+		// mostramos los resultados por consola/ventana
 		mostrarResultados();
 	}
 
@@ -76,6 +87,7 @@ public class Logica {
 	private ResultadoEnum obtenerResultadoPartido(int indice) {
 
 		Partido partido = partidos.get(indice % partidos.size());
+		
 		int golesEq1 = Integer.parseInt(partido.toString().split(",")[3]);
 		int golesEq2 = Integer.parseInt(partido.toString().split(",")[4]);
 
@@ -103,11 +115,17 @@ public class Logica {
 
 		// si el participante no existe, crear uno nuevo
 		Participante participante;
+		
 		if (participanteExistente.isPresent()) {
+			
 			participante = participanteExistente.get();
+			
 		} else {
+			
 			participante = new Participante(nombreParticipante);
+			
 			participantes.add(participante); // agregar el nuevo participante a la lista
+			
 		}
 
 		// actualizar los puntos solo si hay acierto
@@ -117,8 +135,21 @@ public class Logica {
 	}
 
 	private void mostrarResultados() {
-
+		
+		porConsola(); // muestra informacion por consola
+		//porVentana(); // muestra informacion por ventana
+	}
+	
+	
+	private void porConsola() {
+		
 		VisorConsola.mostrarResultados(participantes);
-		//Ventana.mostrarResultados(participantes);
+	}
+	
+	private void porVentana() {
+		
+		Ventana ventana = new Ventana();
+	    ventana.setVisible(true);
+	     
 	}
 }

@@ -1,3 +1,4 @@
+package controller;
 public class Participante implements Comparable<Participante>{
 
     private String nombre;

@@ -1,4 +1,7 @@
 // import java.util.List;
+package main;
+
+import controller.Logica;
 
 public class Main {
 	

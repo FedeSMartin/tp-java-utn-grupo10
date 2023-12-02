@@ -1,4 +1,8 @@
-import java.util.List;
+package view;
+
+import java.util.*;
+
+import controller.Participante;
 
 public interface VisualizadorResultados {
 	

@@ -1,3 +1,4 @@
+package model;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class ArchivoPronosticos {
