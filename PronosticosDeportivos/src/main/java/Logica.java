@@ -4,10 +4,13 @@ public class Logica {
 
 	private List<Pronostico> pronosticos;
 	private List<Partido> partidos;
-
+	private List<Participante> participantes;
+	private int puntos = 2;
+	
 	public Logica() {
 
-		// Inicialización y carga de datos desde las clases DatosBDA y DatosBDB
+		// inicializacion y carga de datos desde 
+		// las clases DatosBDPronosticos y DatosBDPartidos
 		InfoBDPronostico datosBDPronostico = new InfoBDPronostico();
 		InfoBDPartido datosBDPartido = new InfoBDPartido();
 
@@ -15,200 +18,107 @@ public class Logica {
 		this.partidos = datosBDPartido.obtenerDatosPartidos();
 
 		iniciarLogica();
-
 	}
 
 	public void iniciarLogica() {
 
-		int logitudPronostico = pronosticos.size();
-		int logitudPartidos = partidos.size();
+		participantes = new ArrayList<>(); // Inicializamos la lista de participantes
 
-		ResultadoEnum resultadoPronostico = null;
+		int longitudPronostico = pronosticos.size();
 
-		ResultadoEnum resultadoPartido = null;
+		// se cicla la lectura de partidos y se comparan con los pronosticos
+		for (int i = 0; i < longitudPronostico; i++) {
+			procesarPronostico(i);
+		}
 
-		for (int i = 0; i < logitudPronostico; i++) {
-			
-///////////////////////PRONOSTICOS ///////////////
-
-			Pronostico pronostik = pronosticos.get(i);
-
-			String[] datosPronostico = pronostik.toString().split(",");
-
-			if (datosPronostico[4].equalsIgnoreCase("X")) {
-
-				resultadoPronostico = ResultadoEnum.GANA_EQUIPO1;
-				//System.out.println("pronostico " + resultadoPronostico);
-
-			} else if (datosPronostico[5].equalsIgnoreCase("X")) {
-
-				resultadoPronostico = ResultadoEnum.EMPATE;
-				//System.out.println("pronostico " + resultadoPronostico);
-			} else if (datosPronostico[6].equalsIgnoreCase("X")) {
-
-				resultadoPronostico = ResultadoEnum.GANA_EQUIPO2;
-				//System.out.println("pronostico " + resultadoPronostico);
-
-			}
-
-////////////////////////   PARTRIDOS   ////////////////////////////
-
-			Partido partido = partidos.get(i % logitudPartidos);
-
-			String[] datosPartido = partido.toString().split(", |");
-
-			// se convierte las columnas de los golas a numeros 
-			
-			String datosGolesEq1 = partido.toString().split(",")[3];
-			String datosGolesEq2 = partido.toString().split(",")[4];
-
-			int golesEq1 = Integer.parseInt(datosGolesEq1);
-			int golesEq2 = Integer.parseInt(datosGolesEq2);
-
-			// resultado de los partidos
-
-			if (golesEq1 > golesEq2) {
-
-				resultadoPartido = ResultadoEnum.GANA_EQUIPO1;
-				// System.out.println("Partido " + resultadoPartido);
-
-			} else if (golesEq1 < golesEq2) {
-
-				resultadoPartido = ResultadoEnum.GANA_EQUIPO2;
-				// System.out.println("Partido " + resultadoPartido);
-
-			} else if (golesEq1 == golesEq2) {
-
-				resultadoPartido = ResultadoEnum.EMPATE;
-				// System.out.println("Partido " + resultadoPartido);
-
-			}
-			
-/////////////////////////////////////////////////////////////////////////////////
-			
-			// comparacion de pronosticos contra resultados del partido
-			
-			Participante participante = new Participante(datosPronostico[2]);
-			
-			if (resultadoPronostico == resultadoPartido) {
-
-				System.out.println("se suma un puntos a: " + datosPronostico[2]);
-				
-				participante.sumarPuntos(1); // Suma 1 punto (hay que hacerlo seteable)
-
-			} else {
-
-				System.out.println("no se suma nada a: " + datosPronostico[2]);
-			}
-			
-
-			
-		}// fin del bucle for
+		// Ordenamos la lista de participantes de mayor a menor según la cantidad de
+		// puntos
+		participantes.sort(Collections.reverseOrder());
 		
-		
-		
+		//comparador personalizado		
+		participantes.sort(Comparator.comparingInt(Participante::getPuntos).reversed());
 
-	}// llave de "iniciarLogica()"
-	
-	
-	
-}// llave de la clase
+		// Mostramos los resultados por consola
+		mostrarResultados();
+	}
 
-//		Pronostico pron = pronosticos.get(0);
-//		Partido par = partidos.get(0);
-//		
-//		System.out.println(pron);
-//		System.out.println(par);
+	private void procesarPronostico(int indice) {
 
-//        System.out.println("Datos de la Clase Logica:");
-//        System.out.println("Datos de la Clase Pronosticos:");
-//        for (Pronostico dato : pronosticos) {
-//            System.out.println(dato);
-//        }
-//
-//        System.out.println("\nDatos de la Clase Partidos:");
-//        
-//        for (Partido dato : partidos) {
-//            System.out.println(dato);
-//        }
+		Pronostico pronostico = pronosticos.get(indice);
 
-//
+		String[] datosPronostico = pronostico.toString().split(",");
 
-///////////////// INSTANCIANDO PARTIDO(S) ///////////////////////////////////////
-//		
-//		// lista partido
-//		List<Partido> partido = new ArrayList<>();
-//						
-////-----------------------------------------------------------------------------
-//		// Lectura y parseado de datos de Resultados
-//		LectorDeResultados lecturaResultados = new LectorDeResultados("src/main/resources/resultados.csv");
-//		lecturaResultados.parsearArchivo();
-//				
-//		List<ArchivoResultados> resultados = lecturaResultados.lineasArchivoResultados;
-//		
-////-----------------------------------------------------------------------------
-//		
-//		if (resultados != null && !resultados.isEmpty()) {
-//		
-//			for(ArchivoResultados datosDePartido : resultados) {
-//				
-////				Partido partido1 = new Partido(datosDePartido.getRonda(), datosDePartido.getEquipo1(), datosDePartido.getEquipo2(), datosDePartido.getCantidadGoles1(),datosDePartido.getCantidadGoles2());
-//				
-//				// Agregar partido a lista partido
-//				Partido unPartido = new Partido(datosDePartido.getRonda(), datosDePartido.getEquipo1(), datosDePartido.getEquipo2(), datosDePartido.getCantidadGoles1(),datosDePartido.getCantidadGoles2());
-//                partido.add(unPartido);
-//				
-//			}
-//		    
-//		} else {
-//			
-//		    System.out.println("La lista de resultados está vacía.");
-//		    
-//		}
-//		
-/////////////////////// INSTANCIANDO PRONOSTICO(S) //////////////////////////////	
-//		
-//		// Lista pronostico(pronostico/partido)
-//		List<Pronostico> pronostico = new ArrayList<>();
-//		
-//		// Lectura de archivo y parseado
-//		
-//		LectorDePronosticos lecturaPronosticos = new LectorDePronosticos("src/main/resources/pronostico.csv");
-//		lecturaPronosticos.parsearArchivo();
-//		
-//		List<ArchivoPronosticos> pronosticos = lecturaPronosticos.lineasArchivoPronosticos;
-//		
-////-----------------------------------------------------------------------------
-//		
-//		if (pronosticos != null && !pronosticos.isEmpty()) {
-//			
-//			for(ArchivoPronosticos datosDePronostico : pronosticos) {
-//				
-//				// Instanciar un partido con datos de pronostico
-//				
-//				Pronostico pronosticoPartido = new Pronostico(datosDePronostico.getRonda(), datosDePronostico.getParticipante(), datosDePronostico.getPuntos(); partido, datosDePronostico.getEquipo1());
-//				
-////				Partido pronosticoPartido = new Partido();
-//				
-//
-//				// Agregar pronostico a lista pronosticoPartido
-//				pronostico.add(pronosticoPartido);
-//			}
-//			
-//			// comparar los partidos en contra los pronosticos
-//		    
-//		} else {
-//			
-//		    System.out.println("La lista de pronosticos está vacía.");
-//		}
-//		
-//		// ================ comparar resultados con pronosticos ==================
-//		
-//	}
+		ResultadoEnum resultadoPronostico = obtenerResultadoPronostico(datosPronostico);
+		ResultadoEnum resultadoPartido = obtenerResultadoPartido(indice);
 
-// Se deben crear las clases necesarias para que aqui solo se desarrolle la
-// logica.
-// En este lugar se ingresan los datos, que pueden ser mediante conexion a BD
-// o al lector CSV.
-// Tambien se debe poder enviar los resultados a una clase que lo muestre por
-// consola o que lo muestre por ventana (Window builder).
+		compararResultados(datosPronostico[2], resultadoPronostico, resultadoPartido);
+	}
+
+	private ResultadoEnum obtenerResultadoPronostico(String[] datosPronostico) {
+
+		if (datosPronostico[4].equalsIgnoreCase("X")) {
+
+			return ResultadoEnum.GANA_EQUIPO1;
+
+		} else if (datosPronostico[5].equalsIgnoreCase("X")) {
+
+			return ResultadoEnum.EMPATE;
+
+		} else if (datosPronostico[6].equalsIgnoreCase("X")) {
+
+			return ResultadoEnum.GANA_EQUIPO2;
+
+		}
+
+		return null; // Manejar el caso donde ninguno de los resultados es válido
+	}
+
+	private ResultadoEnum obtenerResultadoPartido(int indice) {
+
+		Partido partido = partidos.get(indice % partidos.size());
+		int golesEq1 = Integer.parseInt(partido.toString().split(",")[3]);
+		int golesEq2 = Integer.parseInt(partido.toString().split(",")[4]);
+
+		if (golesEq1 > golesEq2) {
+
+			return ResultadoEnum.GANA_EQUIPO1;
+
+		} else if (golesEq1 < golesEq2) {
+
+			return ResultadoEnum.GANA_EQUIPO2;
+
+		} else {
+
+			return ResultadoEnum.EMPATE;
+
+		}
+	}
+
+	private void compararResultados(String nombreParticipante, ResultadoEnum resultadoPronostico,
+			ResultadoEnum resultadoPartido) {
+
+		// buscar el participante en la lista existente
+		Optional<Participante> participanteExistente = participantes.stream()
+				.filter(p -> p.getNombre().equals(nombreParticipante)).findFirst();
+
+		// si el participante no existe, crear uno nuevo
+		Participante participante;
+		if (participanteExistente.isPresent()) {
+			participante = participanteExistente.get();
+		} else {
+			participante = new Participante(nombreParticipante);
+			participantes.add(participante); // agregar el nuevo participante a la lista
+		}
+
+		// actualizar los puntos solo si hay acierto
+		if (resultadoPronostico == resultadoPartido) {
+			participante.sumarPuntos(puntos);
+		}
+	}
+
+	private void mostrarResultados() {
+
+		VisorConsola.mostrarResultados(participantes);
+		//Ventana.mostrarResultados(participantes);
+	}
+}

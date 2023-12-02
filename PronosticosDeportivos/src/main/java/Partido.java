@@ -94,19 +94,4 @@ public class Partido {
         
         
     }
-
-
-//	public resultadoEnum resultado(Equipo equipo) {
-//		
-//	// Aca lee el archivo de resultados, extrae lo que necesita, ronda, los equipos y los goles
-//	// Tambien lee el archivo de pronosticos, extrae los datos necesarios para comparar los datos
-//	
-//	// Si equipo1 tiene mas goles que equipo2, equipo1 "GANA", equipo2 "PIERDE". 
-//	// Si equipo 1 tiene mismos o ningun gol mas que equipo2, equipo1 y equipo2, "EMPATA"
-//	
-//	// La logica tiene que comparar los resultados y verificarlos en el Enum "ResultadosEnum"
-//			
-//	// Retorna un Enum
-//	
-//}
 }

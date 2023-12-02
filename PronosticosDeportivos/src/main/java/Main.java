@@ -1,10 +1,37 @@
-import java.util.List;
+// import java.util.List;
 
 public class Main {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		Logica log = new Logica();
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 		
 		//Logica logic = new Logica();
 		
@@ -26,6 +53,4 @@ public class Main {
 //		}
 		
 		
-		}
-	
-}
+		

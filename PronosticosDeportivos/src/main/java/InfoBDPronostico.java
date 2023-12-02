@@ -2,17 +2,17 @@ import java.sql.*;
 import java.util.*;
 
 public class InfoBDPronostico {
+	
 	private List<Pronostico> listaDePronosticos;
 
 	public InfoBDPronostico() {
+		
 		cargarDatosDesdeDB();
+		
 	}
 
 	private void cargarDatosDesdeDB() {
 		// Lógica para cargar datos desde la base de datos a listaDePronosticos
-		// ...
-
-		// Ejemplo: Obtener datos ficticios
 		this.listaDePronosticos = obtenerDatosDesdeDB();
 	}
 
@@ -65,6 +65,7 @@ public class InfoBDPronostico {
 			conexion.close();
 
 		} catch (SQLException se) {
+			
 			// Excepción ante problemas de conexión
 			se.printStackTrace();
 

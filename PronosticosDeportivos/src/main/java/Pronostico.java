@@ -147,38 +147,4 @@ public class Pronostico {
 	}
 	
 	
-	//-----------------------------
-	
-	//-----------------------------
-	
-	// RESULTADO DEL PARTIDO	
-//	public ResultadoEnum getEstado() {
-//		return estado;
-//	}
-//
-//	public void setEstado(ResultadoEnum estado) {
-//		this.estado = estado;
-//	}
-	//-----------------------------
-	
-//	public ResultadoEnum estado() {
-//		
-//        if (partido.getGolesEquipo1() > partido.getGolesEquipo2() || pronostico.getGana1().equals("X")) {
-//        	
-//            return ResultadoEnum.GANA_EQUIPO1;
-//            
-//        } else if (partido.getGolesEquipo1() < partido.getGolesEquipo2() || pronostico.getGana2().equals("X")) {
-//  
-//            return ResultadoEnum.GANA_EQUIPO2;
-//            
-//        } else if (pronostico.getEmapata().equals("X")) {
-//        	
-//            return ResultadoEnum.EMPATE;
-//            
-//        }
-//        
-//		return estado;
-//    }
-	
-	//-----------------------------
 }
