@@ -1,58 +1,64 @@
 package controller;
 
-public class Participante implements Comparable<Participante>{
+public class Participante implements Comparable<Participante> {
 
-    private String nombre;
-    private int puntos;
-    private int aciertos;
+	private String nombre;
+	private int puntos;
+	private int aciertos;
 
-    public Participante(String nombre, int puntos) {
-    	
-        this.nombre = nombre;
-        this.puntos = puntos;
-    }
+	public Participante(String nombre, int puntos) {
 
-    public Participante(String nombre) {
-    	
-        this.nombre = nombre;
-    }
+		this.nombre = nombre;
+		this.puntos = puntos;
+	}
 
-    public String getNombre() {
-    	
-        return nombre;
-    }
+	public Participante(String nombre) {
 
-    public int getPuntos() {
-    	
-        return puntos;
-    }
+		this.nombre = nombre;
+	}
 
-    public int getAciertos() {
-    	
-        return aciertos;
-    }
+	public Participante(String nombre, int puntos, int aciertos) {
+		this.nombre = nombre;
+		this.puntos = puntos;
+		this.aciertos = aciertos;
+	}
 
-    @Override
-    public String toString() {
-    	
-        return nombre;
-    }
-    
-    @Override
-    public int compareTo(Participante otroParticipante) {
-        // Comparar por la cantidad de puntos en orden descendente
-        return Integer.compare(otroParticipante.getPuntos(), this.getPuntos());
-    }
+	public String getNombre() {
 
-    public void sumarPuntos(int puntosASumar) {
-    	
-        this.puntos += puntosASumar;
-        
-        if (puntosASumar > 0) {
-        	
-            // si se están sumando puntos, se incrementa el contador de aciertos
-            aciertos++;
-            
-        }
-    }
+		return nombre;
+	}
+
+	public int getPuntos() {
+
+		return puntos;
+	}
+
+	public int getAciertos() {
+
+		return aciertos;
+	}
+
+	@Override
+	public String toString() {
+
+		return nombre;
+	}
+
+	@Override
+	public int compareTo(Participante otroParticipante) {
+		// Comparar por la cantidad de puntos en orden descendente
+		return Integer.compare(otroParticipante.getPuntos(), this.getPuntos());
+	}
+
+	public void sumarPuntos(int puntosASumar) {
+
+		this.puntos += puntosASumar;
+
+		if (puntosASumar > 0) {
+
+			// si se están sumando puntos, se incrementa el contador de aciertos
+			aciertos++;
+
+		}
+	}
 }

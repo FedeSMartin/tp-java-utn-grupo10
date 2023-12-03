@@ -1,25 +1,24 @@
 package view;
 
-
 public class Visualizador {
-	
-	private String salidaDeDatos;	// consola
+
+	private String salidaDeDatos; // consola
 									// ventana
 
 	public Visualizador() {
-		
-		if ( salidaDeDatos.equalsIgnoreCase("consola")) {
-			
+
+		if (salidaDeDatos.equalsIgnoreCase("consola")) {
+
 			// Invocar clase VisorConsola
-			
-		} else if ( salidaDeDatos.equalsIgnoreCase("ventana") ) {
-			
+
+		} else if (salidaDeDatos.equalsIgnoreCase("ventana")) {
+
 			// Invocar clase VisorVentana
-			
+
 		} else {
-			
+
 			System.out.println("Asegurese de seleccionar la opcion correcta");
-			
+
 		}
 
 	}

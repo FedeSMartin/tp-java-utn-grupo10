@@ -20,10 +20,10 @@ public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	
+
 	// hago atributos a los elementos de la ventana
 	// para poder llamarlos en otras clases
-	
+
 	private JButton btnPuntaje;
 	private JLabel titulo;
 
@@ -39,8 +39,9 @@ public class Ventana extends JFrame {
 			}
 		});
 	}
+
 	public Ventana() {
-		
+
 		setTitle("ProdeSoft");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\img\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,8 +68,8 @@ public class Ventana extends JFrame {
 		btnPuntaje.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnPuntaje.setBounds(160, 69, 115, 30);
 		contentPane.add(btnPuntaje);
-		
-		//////////////////////////////////////////////////////////////////////////////
+
+		/////////////////////// tabla ///////////////////////////
 
 		modeloTabla = new DefaultTableModel(new Object[] { "Participante", "Puntos", "Aciertos" }, 0);
 
@@ -97,19 +98,17 @@ public class Ventana extends JFrame {
 		List<Participante> participantes = obtenerListaDeParticipantes();
 
 		for (Participante participante : participantes) {
-			
+
 			modeloTabla.addRow(
-					new Object[] { participante.getNombre(), 
-							participante.getPuntos(), 
-							participante.getAciertos() });
+					new Object[] { participante.getNombre(), participante.getPuntos(), participante.getAciertos() });
 		}
 	}
-	
+
 	// metodo para obtener la lista de participantes desde la logica //
 	private List<Participante> obtenerListaDeParticipantes() {
 		Logica logica = null;
 		return logica.getParticipantes();
-		
+
 	}
 
 }

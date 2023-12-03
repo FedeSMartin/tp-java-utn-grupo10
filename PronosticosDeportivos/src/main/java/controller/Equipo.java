@@ -1,18 +1,18 @@
 package controller;
 
 public class Equipo {
-	
-	private String nombre;	
+
+	private String nombre;
 	private String descripcion;
-	
+
 	public Equipo(String nombre, String descripcion) {
-		
+
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
-	
+
 	public Equipo(String nombre) {
-		
+
 		this.nombre = nombre;
 
 	}
@@ -24,11 +24,10 @@ public class Equipo {
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
+
 	@Override
-    public String toString() {
-        return nombre;
-    }
-	
+	public String toString() {
+		return nombre;
+	}
 }
 // prueba de comentario

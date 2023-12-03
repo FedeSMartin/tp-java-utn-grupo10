@@ -1,94 +1,97 @@
 package model;
+
 import java.sql.*;
 import java.util.*;
 
 import controller.Partido;
 
 public class InfoBDPartido {
-	
-    private List<Partido> listaDePartidos;
 
-    public InfoBDPartido() {
-        cargarDatosDesdeDB();
-    }
+	private List<Partido> listaDePartidos;
 
-    private void cargarDatosDesdeDB() {
-    	
-        // Lógica para cargar datos desde la base de datos a listaDePartidos
-        this.listaDePartidos = obtenerDatosDesdeDB();
-        
-    }
+	public InfoBDPartido() {
+		cargarDatosDesdeDB();
+	}
 
-    public List<Partido> obtenerDatosPartidos() {
-        return listaDePartidos;
-    }
+	private void cargarDatosDesdeDB() {
 
-    private List<Partido> obtenerDatosDesdeDB() {
-    	
-        // Lógica para obtener datos desde la base de datos
-        List<Partido> listaDePartidos = new ArrayList<>();
+		// logica para cargar datos desde la base de datos a listaDePartidos
+		this.listaDePartidos = obtenerDatosDesdeDB();
 
-        Connection conexion = null;
-        java.sql.Statement consulta = null;
-        String sql;
+	}
 
-        try {
-            // Abrir la conexión
-            conexion = DriverManager.getConnection(CredencialBaseDeDatos.DB_URL, CredencialBaseDeDatos.USER,
-                    CredencialBaseDeDatos.PASS);
+	public List<Partido> obtenerDatosPartidos() {
+		return listaDePartidos;
+	}
 
-            // Ejecutar una consulta
-            consulta = conexion.createStatement();
+	private List<Partido> obtenerDatosDesdeDB() {
 
-            sql = "SELECT * FROM partidos";
+		// logica para obtener datos desde la base de datos
+		List<Partido> listaDePartidos = new ArrayList<>();
 
-            // En la variable resultado obtendremos las distintas filas que nos devolvió la base
-            ResultSet resultado = consulta.executeQuery(sql);
+		Connection conexion = null;
+		java.sql.Statement consulta = null;
+		String sql;
 
-            // Obtener las distintas filas de la consulta
-            while (resultado.next()) {
-                int idPartido = resultado.getInt("id_Partido");
-                int ronda = resultado.getInt("Ronda");
-                String equipo1 = resultado.getString("Equipo_1");
-                int golesEquipo1 = resultado.getInt("Goles_Equipo_1");
-                int golesEquipo2 = resultado.getInt("Goles_Equipo_2");
-                String equipo2 = resultado.getString("Equipo_2");
+		try {
+			// abrir la conexion
+			conexion = DriverManager.getConnection(CredencialBaseDeDatos.DB_URL, CredencialBaseDeDatos.USER,
+					CredencialBaseDeDatos.PASS);
 
-                // Almacenar los valores obtenidos
-                listaDePartidos.add(new Partido(idPartido, ronda, equipo1, golesEquipo1, golesEquipo2, equipo2));
-            }
+			// ejecutar una consulta
+			consulta = conexion.createStatement();
 
-            // Esto se utiliza para cerrar la conexión con la base de datos
-            resultado.close();
-            consulta.close();
-            conexion.close();
+			sql = "SELECT * FROM partidos";
 
-        } catch (SQLException se) {
-            // Excepción ante problemas de conexión
-            se.printStackTrace();
+			// en la variable resultado obtendremos las distintas filas que nos devolvio la
+			// base
+			ResultSet resultado = consulta.executeQuery(sql);
 
-        } finally {
+			// Obtener las distintas filas de la consulta
+			while (resultado.next()) {
+				int idPartido = resultado.getInt("id_Partido");
+				int ronda = resultado.getInt("Ronda");
+				String equipo1 = resultado.getString("Equipo_1");
+				int golesEquipo1 = resultado.getInt("Goles_Equipo_1");
+				int golesEquipo2 = resultado.getInt("Goles_Equipo_2");
+				String equipo2 = resultado.getString("Equipo_2");
 
-            // Esta sentencia es para que ante un problema con la base igual se cierren las conexiones
+				// Almacenar los valores obtenidos
+				listaDePartidos.add(new Partido(idPartido, ronda, equipo1, golesEquipo1, golesEquipo2, equipo2));
+			}
 
-            try {
+			// Esto se utiliza para cerrar la conexión con la base de datos
+			resultado.close();
+			consulta.close();
+			conexion.close();
 
-                if (consulta != null)
-                    consulta.close();
+		} catch (SQLException se) {
+			// excepcion ante problemas de conexion
+			se.printStackTrace();
 
-            } catch (SQLException se2) {
-            }
-            try {
+		} finally {
 
-                if (conexion != null)
-                    conexion.close();
+			// esta sentencia es para que ante un problema con la base igual se cierren las
+			// conexiones
 
-            } catch (SQLException se) {
+			try {
 
-                se.printStackTrace();
-            }
-        }
+				if (consulta != null)
+					consulta.close();
 
-        return listaDePartidos;
-    }
+			} catch (SQLException se2) {
+			}
+			try {
+
+				if (conexion != null)
+					conexion.close();
+
+			} catch (SQLException se) {
+
+				se.printStackTrace();
+			}
+		}
+
+		return listaDePartidos;
+	}
 }
