@@ -6,15 +6,13 @@ public class Visualizador {
 	private String salidaDeDatos;	// consola
 									// ventana
 
-	public Visualizador(String salidaDeDatos) {
+	public Visualizador() {
 		
-		this.salidaDeDatos = salidaDeDatos;
-		
-		if ( salidaDeDatos.equals("consola")) {
+		if ( salidaDeDatos.equalsIgnoreCase("consola")) {
 			
 			// Invocar clase VisorConsola
 			
-		} else if ( salidaDeDatos.equals("ventana") ) {
+		} else if ( salidaDeDatos.equalsIgnoreCase("ventana") ) {
 			
 			// Invocar clase VisorVentana
 			

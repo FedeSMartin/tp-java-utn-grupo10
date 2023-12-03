@@ -16,29 +16,17 @@ public class VisorConsola {
 					+ " pronóstico" + (participante.getAciertos() == 1 ? "" : "s") + ".");
 		}
 		
-		cerrarConsola();
 	}
 
 	public static void tituloPrograma() {
 		
 		arteDeCaratula();
 		
-		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nPresione Enter continuar...");
 		scanner.nextLine();
 	}
 	
-	public static void cerrarConsola() {
-		
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("\nPresione Enter terminar...");
-		scanner.nextLine();
-		
-		System.exit(0);
-		
-	}
 	
 	public static void arteDeCaratula() {
 		System.out.println("###############################################################");
@@ -49,7 +37,7 @@ public class VisorConsola {
         System.out.println("#  | |    | |   | (_) || |/ / |  __//\\__/ /| (_) || |  | |_   #");
         System.out.println("#  \\_|    |_|    \\___/ |___/   \\___|\\____/  \\___/ |_|   \\__|  #");
         System.out.println("#                                                             #");
-        System.out.println("#                 Programa de ProDe - 2023                    #");
+        System.out.println("#                       Programa de ProDe                     #");
         System.out.println("#                                                             #");
         System.out.println("###############################################################");
 		
